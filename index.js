@@ -5,12 +5,12 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(express.json());
 
-const mongo_db_url = process.env.mongo_db_url;
+const mongo_db_url = process.env.MONGO_DB_URL;
 
 // simple schema
 const itemSchema = new mongoose.Schema({
-  name: string,
-  created_at: Date.now,
+  name: String,
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Item = mongoose.model("item", itemSchema);
